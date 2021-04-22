@@ -69,3 +69,15 @@ const solution1 = items => {
   return result
 }
 console.log(JSON.stringify(solution1(items), null, ' '))
+
+const solution2 = items => {
+  const idToNode = id => {
+    const item = _.find(items, { id })
+    return {
+      ...item,
+      children: _.map(item.children, idToNode)
+    }
+  }
+  return [idToNode('root')]
+}
+console.log(JSON.stringify(solution2(items), null, '  '))
