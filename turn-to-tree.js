@@ -1,3 +1,5 @@
+const _ = require('lodash')
+
 // Turn to Tree
 const items = [
   {id:'root',  children:[2, 3]},
@@ -7,7 +9,6 @@ const items = [
   {id: 4, children: [2]},
   {id: 5, children: []}
 ]
-console.log(_.concat(1, [3, 2]))
 
 const idsToChildren = input => {
   const idToItem = id =>{
