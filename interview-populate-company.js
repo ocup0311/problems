@@ -1,6 +1,6 @@
 const _ = require('lodash')
 
-// stimulate searching time
+// simulate searching time
 const wait = second => new Promise(resolve => {
   setTimeout(() => {
     console.log(`finish searching in ${second}s`)
@@ -8,7 +8,7 @@ const wait = second => new Promise(resolve => {
   }, second * 1000)
 })
 
-// DB
+// simulate DB
 const companies = [
   {
     id: 1,
@@ -146,7 +146,7 @@ const db3Users = [
   }
 ]
 
-// READ DB
+// simulate READ DB
 const getCompanies = async () => {
   await wait(0.1)
   return companies
