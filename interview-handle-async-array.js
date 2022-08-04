@@ -10,20 +10,32 @@ const Companies = [
   { id: 3, name: 'Google' }
 ]
 
+const wait = second => new Promise(resolve => setTimeout(resolve, second * 1000))
+
 const readUsers = async () => Users
 
-const readCompanyById = async id => _.find(Companies, { id })
+const readCompanyById = async id => {
+  await wait(2)
+  if (id === 2) throw new Error('id should not be 2')
+  return _.find(Companies, { id })
+} 
 
-/*
-return: [
-  { name: 'Bob', company: { id: 1, name: 'Apple' } },
-  { name: 'Alice', company: { id: 2, name: 'Facebook' } },
-  { name: 'John', company: { id: 3, name: 'Google' } }
-]
-*/
+/**
+ * Please write a function that return:
+ * [
+ *   { name: 'Bob', company: { id: 1, name: 'Apple' } },
+ *   { name: 'Alice', company: { id: 2, name: 'Facebook' } },
+ *   { name: 'John', company: { id: 3, name: 'Google' } }
+ * ]
+ */
+
 const getUsers = async () => {
   const users = await readUsers()
   // please continue...
+  users.forEach(async (user) => {
+    let company = await readCompanyById(user.company)
+    user.company = company
+  })
   return users
 }
 
