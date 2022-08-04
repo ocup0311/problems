@@ -156,6 +156,7 @@ const getDepartments = async () => {
   await wait(0.1)
   return departments
 }
+
 const getDepartmentById = async departmentId => {
   await wait(0.1)
   return _.find(departments, { id: departmentId })
@@ -203,3 +204,6 @@ const getUserByIdFromDB3 = async userId => {
 
 // 問題1. 請把所有公司旗下所有資料撈出來，並將 xxxxIds 命名成 xxxx。
 // 問題2. 計算每個 user 的 salary，按照每個組織結構的 adjust 調整 salary。
+// company_name department_name department_adjust group_name group_adjust user_name uesr_adjust origin_salary adjust_salary
+// c1 c1_d1 200 c1_d1_g1 160 c1_d1_g1_u1 110 2000 2470
+// ...
