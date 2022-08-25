@@ -1,4 +1,5 @@
 const _ = require('lodash')
+
 const Users = [
   { name: 'Bob', company: 1 },
   { name: 'Alice', company: 2 },
