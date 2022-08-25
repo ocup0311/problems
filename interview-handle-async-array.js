@@ -10,13 +10,13 @@ const Companies = [
   { id: 3, name: 'Google' }
 ]
 
-const wait = second => new Promise(resolve => setTimeout(resolve, second * 1000))
+// const wait = second => new Promise(resolve => setTimeout(resolve, second * 1000))
 
 const readUsers = async () => Users
 
 const readCompanyById = async id => {
-  await wait(2)
-  if (id === 2) throw new Error('id should not be 2')
+  // await wait(2)
+  // if (id === 2) throw new Error('id should not be 2')
   return _.find(Companies, { id })
 } 
 
@@ -28,18 +28,4 @@ const readCompanyById = async id => {
  *   { name: 'John', company: { id: 3, name: 'Google' } }
  * ]
  */
-
-const getUsers = async () => {
-  const users = await readUsers()
-  // please continue...
-  users.forEach(async (user) => {
-    let company = await readCompanyById(user.company)
-    user.company = company
-  })
-  return users
-}
-
-;(async () => {
-  console.log(await getUsers());
-})()
 
