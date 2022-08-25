@@ -12,11 +12,14 @@ const Companies = [
 
 const wait = second => new Promise(resolve => setTimeout(resolve, second * 1000))
 
-const readUsers = async () => Users
+const readUsers = async () => {
+  // await wait(1)
+  return Users
+}
 
 const readCompanyById = async id => {
-  await wait(2)
-  if (id === 2) throw new Error('id should not be 2')
+  // await wait(1)
+  // if (id === 2) throw new Error('id should not be 2')
   return _.find(Companies, { id })
 } 
 
