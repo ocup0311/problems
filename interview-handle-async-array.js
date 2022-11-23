@@ -39,7 +39,7 @@ const getUsers = async () => {
 }
 
 const main = async() => {
-  console.log(awiat getUsers())
+  console.log(await getUsers())
 }
 
 main()
